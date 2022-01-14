@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Open source client-side DeSo wallet generator.">
+    <meta name="theme-color" content="#4C79B9">
+
+    <meta property="og:site_name" content="DeSo Wallet Generator">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Generate a DeSo wallet">
+    <meta property="og:description" content="Open source client-side DeSo wallet generator.">
+    <meta property="og:url" content="https://desogen.app/">
+    <meta property="og:locale" content="en">
+
+    <title>DeSo Wallet Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <h1>DeSo Wallet Generator</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p>You can use this tool to generate a DeSo wallet offline.</p>
+
+            <label for="mnemonic">Seed phrase (BIP39 mnemonic)</label>
+            <textarea id="mnemonic" rows="2"></textarea>
+
+            <label for="password">Passphrase</label>
+            <textarea id="password" rows="2"></textarea>
+
+            <button type="button" id="submit">Generate Wallet</button>
+
+            <div id="generated">
+                Generated public key:
+                <div id="key">
+                    <span id="publicKey" class="truncate"></span>
+                    <button id="copy">Copy</button>
+                </div>
+                <a href="#" id="img-link">
+                    <img src="" id="qr" width="256" height="256">
+                </a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <span>Created by <a href="https://node.deso.org/u/paulburke">Paul Burke</a></span>
+        </div>
+    </footer>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
