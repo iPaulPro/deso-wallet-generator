@@ -18,6 +18,14 @@ body {
   flex-direction: column;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
 header {
   margin-top: 1rem;
 }

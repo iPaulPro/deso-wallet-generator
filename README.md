@@ -1,2 +1,2 @@
 # deso-wallet-generator
-Clien-side DeSo Wallet Generator
+Client-side DeSo Wallet Generator
