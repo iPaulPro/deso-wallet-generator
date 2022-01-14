@@ -1,0 +1,28 @@
+{
+  "name": "desogen",
+  "version": "1.0.0",
+  "description": "Client-side DeSo Wallet Generator",
+  "scripts": {
+    "local": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --env=local --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "staging": "cross-env NODE_ENV=staging node_modules/webpack/bin/webpack.js --progress --env=staging --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --env=production --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "npm run local",
+    "prod": "npm run production",
+    "watch": "npm run local -- --watch"
+  },
+  "author": "Paul Burke",
+  "license": "MIT",
+  "dependencies": {
+    "bip39": "^3.0.4",
+    "bs58check": "^2.1.2",
+    "elliptic": "^6.5.4",
+    "hdkey": "^2.0.1",
+    "milligram": "^1.4.1",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.39",
+    "node-libs-browser": "^2.2.1"
+  }
+}
