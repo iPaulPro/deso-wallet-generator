@@ -3,6 +3,7 @@ import HDKey from 'hdkey'
 import {ec as EC} from 'elliptic'
 import bs58check from 'bs58check'
 import {randomBytes} from 'crypto'
+import QRCode from 'qrcode'
 
 const DEFAULT_ENTROPY_BYTES = 16
 const DESO_PREFIX = [0xcd, 0x14, 0x0]
@@ -37,6 +38,17 @@ const privateKeyToDeSoPublicKey = (privateKey) => {
   return bs58check.encode(prefixAndKey)
 }
 
+const loadQrCode = (url) => {
+  const qr = document.getElementById('qr')
+  QRCode.toDataURL(url)
+    .then(url => {
+      qr.src = url
+    })
+    .catch(e => {
+      qr.remove()
+    })
+}
+
 const generateWallet = () => {
   let mnemonicElement = document.getElementById('mnemonic')
   const mnemonic = mnemonicElement.value
@@ -59,15 +71,16 @@ const generateWallet = () => {
     publicKeyElement.innerText = publicKeyBase58Check
   }
 
-  const qr = document.getElementById('qr')
-  qr.src = `https://quickchart.io/qr?size=300&text=https%3A%2F%2Fnode.deso.org%2Fsend-deso%3Fpublic_key%3D${publicKeyBase58Check}`
+  const url = `https://node.deso.org/send-deso?public_key=${publicKeyBase58Check}`
 
   const imgLink = document.getElementById('img-link')
-  imgLink.href = `https://node.deso.org/send-deso?public_key=${publicKeyBase58Check}`
+  imgLink.href = url
 
   document.getElementById('generated').style.display = 'inherit'
   mnemonicElement.disabled = true
   passwordElement.disabled = true
+
+  loadQrCode(url)
 }
 
 const copyPublicKey = () => {
