@@ -9,27 +9,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-
-      - name: Install and Build 🔧 
-        run: |
-          npm ci
-          npm run prod
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.2
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder the action should deploy.
   release:
+    concurrency:
+      group: main
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run prod
 
       - name: Create Zip
         run: zip -r release.zip dist
@@ -39,3 +30,21 @@ jobs:
         with:
           artifacts: "release.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
+  build-and-deploy:
+    concurrency:
+      group: main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+
+      - name: Install and Build 🔧
+        run: |
+          npm ci
+          npm run prod
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
