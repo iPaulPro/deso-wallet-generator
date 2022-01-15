@@ -74,8 +74,16 @@ label {
   flex-direction: column;
 }
 
+.container {
+  max-width: 80rem;
+}
+
 .flex {
   display: flex;
+}
+
+.none {
+  display: none !important;
 }
 
 .flex-grow {
@@ -86,6 +94,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .truncate {
@@ -93,6 +102,12 @@ label {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#warning {
+  background-color: #FFC61E;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 #submit {

@@ -129,3 +129,7 @@ submitButton.onclick = generateWallet
 
 const copyButton = document.getElementById('copy')
 copyButton.onclick = copyPublicKey
+
+if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+  document.getElementById('warning').classList.remove('none')
+}
