@@ -40,7 +40,7 @@ const privateKeyToDeSoPublicKey = (privateKey) => {
 
 const loadQrCode = (url) => {
   const qr = document.getElementById('qr')
-  QRCode.toDataURL(url)
+  return QRCode.toDataURL(url)
     .then(url => {
       qr.src = url
     })
@@ -53,13 +53,13 @@ const generateWallet = () => {
   let mnemonicElement = document.getElementById('mnemonic')
   const mnemonic = mnemonicElement.value
 
-  let passwordElement = document.getElementById('password')
-  const password = passwordElement.value
-
   if (!isValidMnemonic(mnemonic)) {
     alert('Invalid mnemonic')
     return
   }
+
+  let passwordElement = document.getElementById('password')
+  const password = passwordElement.value
 
   const keychain = mnemonicToKeychain(mnemonic, password)
   const ec = new EC('secp256k1')
@@ -73,14 +73,22 @@ const generateWallet = () => {
 
   const url = `https://node.deso.org/send-deso?public_key=${publicKeyBase58Check}`
 
-  const imgLink = document.getElementById('img-link')
-  imgLink.href = url
+  const imgLinkElement = document.getElementById('img-link')
+  imgLinkElement.href = url
 
   document.getElementById('generated').style.display = 'inherit'
   mnemonicElement.disabled = true
   passwordElement.disabled = true
 
+  const text = JSON.stringify(keychain.toJSON())
+  const element = document.getElementById('download');
+  element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', `${publicKeyBase58Check}.json`);
+
   loadQrCode(url)
+    .then(() => {
+      location.hash = '#generated'
+    })
 }
 
 const copyPublicKey = () => {

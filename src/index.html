@@ -32,22 +32,29 @@
             <p>You can use this tool to generate a DeSo wallet offline.</p>
 
             <label for="mnemonic">Seed phrase (BIP39 mnemonic)</label>
-            <textarea id="mnemonic" rows="2"></textarea>
+            <textarea id="mnemonic" rows="3"></textarea>
 
             <label for="password">Passphrase</label>
-            <textarea id="password" rows="2"></textarea>
+            <textarea id="password" rows="1"></textarea>
 
             <button type="button" id="submit">Generate Wallet</button>
 
             <div id="generated">
-                Generated public key:
                 <div id="key">
-                    <span id="publicKey" class="truncate"></span>
+                    <div>
+                        Generated public key:
+                        <span id="publicKey" class="truncate"></span>
+                    </div>
                     <button id="copy">Copy</button>
                 </div>
-                <a href="#" id="img-link" target="_blank" rel="noopener">
-                    <img src="" id="qr" width="256" height="256">
-                </a>
+                <div class="centered">
+                    <a href="#" id="img-link" target="_blank" rel="noopener">
+                        <img src="" id="qr">
+                    </a>
+                    <div id="backup">
+                        <a class="button" id="download">Download Keystore</a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
