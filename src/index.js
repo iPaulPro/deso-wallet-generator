@@ -78,7 +78,18 @@ const generateWallet = () => {
 
   document.getElementById('generated').style.display = 'inherit'
   mnemonicElement.disabled = true
-  passwordElement.disabled = true
+  mnemonicElement.style.border = 'none'
+
+  if (password) {
+    passwordElement.disabled = true
+    passwordElement.style.border = 'none'
+  } else {
+    passwordElement.remove()
+    document.querySelector("label[for=" + passwordElement.id + "]").remove()
+  }
+
+  const submitButton = document.getElementById('submit')
+  submitButton.remove()
 
   const text = JSON.stringify(keychain.toJSON())
   const element = document.getElementById('download');
