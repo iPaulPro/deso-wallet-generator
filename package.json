@@ -1,6 +1,6 @@
 {
   "name": "deso-wallet-generator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Client-side DeSo Wallet Generator",
   "scripts": {
     "local": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --env=local --config=node_modules/laravel-mix/setup/webpack.config.js",

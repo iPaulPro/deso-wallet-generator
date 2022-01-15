@@ -98,7 +98,7 @@ label {
 }
 
 .truncate {
-  width: 20rem;
+  width: 18rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -121,7 +121,7 @@ label {
 
 #generated {
   display: none;
-  width: fit-content;
+  width: auto;
   background-color: #f7f7f7;
   border-radius: 0.5rem;
   padding: 2rem;
@@ -131,10 +131,15 @@ label {
 #key {
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
   margin-bottom: 2rem;
 }
 
-#publicKey {
+#key-label {
+  flex-grow: 1;
+}
+
+#public-key {
   color: #111111;
   font-size: 1.1em;
 }
@@ -164,16 +169,16 @@ label {
     font-size: 4.6rem;
   }
 
-  .centered {
-    display: block;
-  }
-
   .truncate {
-    width: 40rem;
+    width: 30rem;
   }
 
   #mnemonic {
     height: 3.8rem;
+  }
+
+  #generated {
+    width: fit-content;
   }
 }
 

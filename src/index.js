@@ -66,7 +66,7 @@ const generateWallet = () => {
   const privateKey = ec.keyFromPrivate(keychain.privateKey)
   const publicKeyBase58Check = privateKeyToDeSoPublicKey(privateKey)
 
-  const publicKeyElement = document.getElementById('publicKey')
+  const publicKeyElement = document.getElementById('public-key')
   if (publicKeyElement) {
     publicKeyElement.innerText = publicKeyBase58Check
   }
@@ -103,7 +103,7 @@ const generateWallet = () => {
 }
 
 const copyPublicKey = () => {
-  const publicKey = document.getElementById('publicKey').value
+  const publicKey = document.getElementById('public-key').innerText
   navigator.clipboard.writeText(publicKey)
     .then(() => {
       const copyBtn = document.getElementById('copy')
@@ -130,6 +130,6 @@ submitButton.onclick = generateWallet
 const copyButton = document.getElementById('copy')
 copyButton.onclick = copyPublicKey
 
-if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1") {
+if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1" && location.protocol !== 'file:') {
   document.getElementById('warning').classList.remove('none')
 }
