@@ -3,6 +3,7 @@
 
 :root {
   --primary: #4C79B9;
+  --primary-dark: #2f5486;
   --secondary: #00B3CB;
 }
 
@@ -15,12 +16,11 @@ body {
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 18px;
-  padding: 2rem;
   font-weight: 500;
 }
 
 a {
-  color: var(--primary);
+  color: var(--primary-dark);
 }
 
 h1 {
@@ -47,6 +47,7 @@ main div > label {
 }
 
 footer {
+  padding: 2rem 0;
   font-size: 0.75em;
 }
 
@@ -67,10 +68,15 @@ label {
   margin-bottom: .5rem;
 }
 
+button, .button {
+  text-shadow: #666 1px 1px 1px;
+}
+
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .container {
@@ -113,9 +119,10 @@ label {
 }
 
 #warning {
-  background-color: #FFC61E;
+  background-color: #fdd162;
   padding: 1rem;
   margin-bottom: 2rem;
+  color: #333;
 }
 
 #submit {
@@ -181,6 +188,7 @@ label {
   align-items: center;
   border-top: 1px solid #cccccc;
   padding-top: 2rem;
+  font-size: 0.8em;
 }
 
 #tip-link {
