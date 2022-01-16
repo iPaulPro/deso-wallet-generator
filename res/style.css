@@ -47,7 +47,6 @@ main div > label {
 }
 
 footer {
-  padding: 1rem;
   font-size: 0.75em;
 }
 
@@ -76,10 +75,19 @@ label {
 
 .container {
   max-width: 80rem;
+  padding: 0;
 }
 
 .flex {
   display: flex;
+}
+
+.columns {
+  flex-direction: column;
+}
+
+.rows {
+  flex-direction: row;
 }
 
 .none {
@@ -166,6 +174,26 @@ label {
 #icon {
   width: 24px;
   height: 24px;
+}
+
+#tip {
+  margin-top: 2rem;
+  align-items: center;
+  border-top: 1px solid #cccccc;
+  padding-top: 2rem;
+}
+
+#tip-link {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  margin-bottom: 0;
+  padding: 0 2rem;
+  height: 3.2rem;
+}
+
+#tip-link img {
+  margin-right: 0.5rem;
 }
 
 /* Larger than mobile screen */
