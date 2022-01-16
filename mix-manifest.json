@@ -1,5 +1,16 @@
 {
-    "/index.js": "/index.js",
-    "/style.css": "/style.css",
-    "/index.html": "/index.html"
+    "/index.js": "/index.js?id=a86414c80555af85095c",
+    "/style.css": "/style.css?id=69a2dbf0a521f51cdd92",
+    "/android-chrome-192x192.png": "/android-chrome-192x192.png?id=54799903950060bfedf1",
+    "/android-chrome-512x512.png": "/android-chrome-512x512.png?id=5c79dd3ed6a8387f89ee",
+    "/apple-touch-icon.png": "/apple-touch-icon.png?id=dfd49f783a047d8b9082",
+    "/browserconfig.xml": "/browserconfig.xml?id=61bfd064535af0c276bb",
+    "/favicon-16x16.png": "/favicon-16x16.png?id=b6b82eb6caa914c1dd88",
+    "/favicon-32x32.png": "/favicon-32x32.png?id=730d278def3743f138ae",
+    "/favicon.ico": "/favicon.ico?id=ce43875242f1d8a59f0d",
+    "/index.html": "/index.html?id=fa63862c00923aaf9deb",
+    "/manifest.json": "/manifest.json?id=1acd3fe5a764bd0debcb",
+    "/mstile-150x150.png": "/mstile-150x150.png?id=705df5ef0ae3daf4b0e2",
+    "/safari-pinned-tab.svg": "/safari-pinned-tab.svg?id=528b3202ecd93c0c1a46",
+    "/service-worker.js": "/service-worker.js?id=2435e3bb2734ba5282cf"
 }
