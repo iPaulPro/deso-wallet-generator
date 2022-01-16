@@ -2,6 +2,7 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('dist')
   .copy('src/index.html', 'dist')
+  .copy('src/icon.svg', 'dist')
   .js('src/index.js', 'dist')
   .css('src/style.css', 'dist')
   .webpackConfig({

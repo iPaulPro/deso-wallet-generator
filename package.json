@@ -24,6 +24,7 @@
   "devDependencies": {
     "cross-env": "^7.0.3",
     "laravel-mix": "^6.0.39",
+    "node-forge": "^1.2.1",
     "node-libs-browser": "^2.2.1"
   }
 }
