@@ -1,10 +1,9 @@
 let mix = require('laravel-mix');
 
 mix.setPublicPath('dist')
-  .copy('src/index.html', 'dist')
-  .copy('src/icon.svg', 'dist')
-  .js('src/index.js', 'dist')
-  .css('src/style.css', 'dist')
+  .copy('src', 'dist')
+  .js('res/index.js', 'dist')
+  .css('res/style.css', 'dist')
   .webpackConfig({
     resolve: {
       fallback: {
@@ -14,4 +13,6 @@ mix.setPublicPath('dist')
       },
     },
   })
+  .sourceMaps()
+  .version()
   .disableSuccessNotifications();

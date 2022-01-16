@@ -133,3 +133,7 @@ copyButton.onclick = copyPublicKey
 if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1" && location.protocol !== 'file:') {
   document.getElementById('warning').classList.remove('none')
 }
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js").catch(console.error)
+}
