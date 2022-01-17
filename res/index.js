@@ -91,6 +91,9 @@ const generateWallet = () => {
   const submitButton = document.getElementById('submit')
   submitButton.remove()
 
+  const refreshButton = document.getElementById('refresh-mnemonic')
+  refreshButton.remove()
+
   const text = JSON.stringify(keychain.toJSON())
   const element = document.getElementById('download');
   element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(text));
@@ -118,17 +121,24 @@ const copyPublicKey = () => {
     .catch(console.error)
 }
 
-const entropy = generateEntropy()
-const mnemonic = generateMnemonic(entropy)
+const refreshMnemonic = () => {
+  const entropy = generateEntropy()
+  const mnemonic = generateMnemonic(entropy)
 
-const mnemonicField = document.getElementById('mnemonic')
-mnemonicField.value = mnemonic
+  const mnemonicField = document.getElementById('mnemonic')
+  mnemonicField.value = mnemonic
+}
 
 const submitButton = document.getElementById('submit')
 submitButton.onclick = generateWallet
 
 const copyButton = document.getElementById('copy')
 copyButton.onclick = copyPublicKey
+
+const refreshButton = document.getElementById('refresh-mnemonic')
+refreshButton.onclick = refreshMnemonic
+
+refreshMnemonic()
 
 if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1" && location.protocol !== 'file:') {
   document.getElementById('warning').classList.remove('none')

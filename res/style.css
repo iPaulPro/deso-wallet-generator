@@ -178,6 +178,10 @@ button, .button {
   height: 5.5em;
 }
 
+#mnemonic-label {
+  align-items: end;
+}
+
 #icon {
   width: 24px;
   height: 24px;
@@ -198,10 +202,20 @@ button, .button {
   margin-bottom: 0;
   padding: 0 2rem;
   height: 3.2rem;
+  line-height: 3.2rem;
 }
 
 #tip-link img {
   margin-right: 0.5rem;
+}
+
+#refresh-mnemonic {
+  background-color: #AAA;
+  border-color: #AAA;
+  padding: 0 1rem;
+  float: right;
+  height: 3rem;
+  line-height: 3rem;
 }
 
 /* Larger than mobile screen */
