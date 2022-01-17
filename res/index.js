@@ -44,7 +44,7 @@ const loadQrCode = (url) => {
     .then(url => {
       qr.src = url
     })
-    .catch(e => {
+    .catch(() => {
       qr.remove()
     })
 }
@@ -140,8 +140,28 @@ refreshButton.onclick = refreshMnemonic
 
 refreshMnemonic()
 
-if (location.hostname !== "localhost" && location.hostname !== "127.0.0.1" && location.protocol !== 'file:') {
-  document.getElementById('warning').classList.remove('none')
+const warningElement = document.getElementById('warning')
+const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+if (location.hostname !== 'localhost'
+    && location.hostname !== '127.0.0.1'
+    && location.protocol !== 'file:'
+    && !(isStandalone || navigator.standalone)
+) {
+  const a = document.createElement('a')
+  a.href = 'https://github.com/iPaulPro/deso-wallet-generator/releases/latest'
+  a.target = '_blank'
+  a.rel = 'noopener'
+  a.innerText = 'Download'
+
+  const span = document.createElement('span')
+  span.innerText = '⚠️ It is recommended to run this generator offline as a local file!'
+  span.appendChild(a)
+
+  warningElement.appendChild(span)
+  warningElement.classList.remove('none')
+} else if (navigator.onLine) {
+  warningElement.innerText = 'It is recommended to run this generator offline.'
+  warningElement.classList.remove('none')
 }
 
 if ("serviceWorker" in navigator) {

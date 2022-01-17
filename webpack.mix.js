@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
 
+require('laravel-mix-workbox');
+
 mix.setPublicPath('dist')
   .copy('src', 'dist')
   .js('res/index.js', 'dist')
@@ -15,4 +17,5 @@ mix.setPublicPath('dist')
   })
   .sourceMaps()
   .version()
+  .generateSW()
   .disableSuccessNotifications();
