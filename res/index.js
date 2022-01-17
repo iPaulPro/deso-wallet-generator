@@ -164,6 +164,8 @@ if (location.hostname !== 'localhost'
   warningElement.classList.remove('none')
 }
 
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js").catch(console.error)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js').catch(console.error)
+  })
 }

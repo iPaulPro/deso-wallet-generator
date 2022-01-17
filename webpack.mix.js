@@ -17,5 +17,7 @@ mix.setPublicPath('dist')
   })
   .sourceMaps()
   .version()
-  .generateSW()
+  .injectManifest({
+    swSrc: './res/service-worker.js'
+  })
   .disableSuccessNotifications();
