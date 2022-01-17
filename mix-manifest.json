@@ -1,5 +1,5 @@
 {
-    "/index.js": "/index.js?id=3e08b1ed56b7c22b2b98",
+    "/index.js": "/index.js?id=171cf7d94c11c79f74be",
     "/style.css": "/style.css?id=e423bc142d22277487fd",
     "/android-chrome-192x192.png": "/android-chrome-192x192.png?id=54799903950060bfedf1",
     "/android-chrome-512x512.png": "/android-chrome-512x512.png?id=5c79dd3ed6a8387f89ee",
@@ -11,5 +11,6 @@
     "/index.html": "/index.html?id=7d6bea1dfeec99d65047",
     "/manifest.json": "/manifest.json?id=5256d2f2e539234d4757",
     "/mstile-150x150.png": "/mstile-150x150.png?id=705df5ef0ae3daf4b0e2",
-    "/safari-pinned-tab.svg": "/safari-pinned-tab.svg?id=528b3202ecd93c0c1a46"
+    "/safari-pinned-tab.svg": "/safari-pinned-tab.svg?id=528b3202ecd93c0c1a46",
+    "/service-worker.js": "/service-worker.js?id=3717c5339768f8954a94"
 }
