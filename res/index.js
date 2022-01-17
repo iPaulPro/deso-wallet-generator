@@ -154,7 +154,7 @@ if (location.hostname !== 'localhost'
   a.innerText = 'Download'
 
   const span = document.createElement('span')
-  span.innerText = '⚠️ It is recommended to run this generator offline as a local file!'
+  span.innerText = '⚠️ It is recommended to run this generator offline as a local file! '
   span.appendChild(a)
 
   warningElement.appendChild(span)
