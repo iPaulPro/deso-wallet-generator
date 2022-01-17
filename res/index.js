@@ -129,6 +129,32 @@ const refreshMnemonic = () => {
   mnemonicField.value = mnemonic
 }
 
+function checkAndWarn() {
+  const warningElement = document.getElementById('warning')
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+  if (location.hostname !== 'localhost'
+    && location.hostname !== '127.0.0.1'
+    && location.protocol !== 'file:'
+    && !(isStandalone || navigator.standalone)
+  ) {
+    const a = document.createElement('a')
+    a.href = 'https://github.com/iPaulPro/deso-wallet-generator/releases/latest'
+    a.target = '_blank'
+    a.rel = 'noopener'
+    a.innerText = 'Download'
+
+    const span = document.createElement('span')
+    span.innerText = '⚠️ It is recommended to run this generator offline as a local file! '
+    span.appendChild(a)
+
+    warningElement.appendChild(span)
+    warningElement.classList.remove('none')
+  } else if (navigator.onLine) {
+    warningElement.innerText = 'It is recommended to run this generator offline.'
+    warningElement.classList.remove('none')
+  }
+}
+
 const submitButton = document.getElementById('submit')
 submitButton.onclick = generateWallet
 
@@ -140,29 +166,13 @@ refreshButton.onclick = refreshMnemonic
 
 refreshMnemonic()
 
-const warningElement = document.getElementById('warning')
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-if (location.hostname !== 'localhost'
-    && location.hostname !== '127.0.0.1'
-    && location.protocol !== 'file:'
-    && !(isStandalone || navigator.standalone)
-) {
-  const a = document.createElement('a')
-  a.href = 'https://github.com/iPaulPro/deso-wallet-generator/releases/latest'
-  a.target = '_blank'
-  a.rel = 'noopener'
-  a.innerText = 'Download'
+checkAndWarn()
 
-  const span = document.createElement('span')
-  span.innerText = '⚠️ It is recommended to run this generator offline as a local file! '
-  span.appendChild(a)
-
-  warningElement.appendChild(span)
-  warningElement.classList.remove('none')
-} else if (navigator.onLine) {
-  warningElement.innerText = 'It is recommended to run this generator offline.'
-  warningElement.classList.remove('none')
-}
+window.matchMedia('(display-mode: standalone)').addEventListener('change', (evt) => {
+  if (evt.matches) {
+    checkAndWarn()
+  }
+})
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {

@@ -210,8 +210,8 @@ button, .button {
 }
 
 #refresh-mnemonic {
-  background-color: #AAA;
-  border-color: #AAA;
+  background-color: #666;
+  border-color: #666;
   padding: 0 1rem;
   float: right;
   height: 3rem;
