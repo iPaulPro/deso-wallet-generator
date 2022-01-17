@@ -43,7 +43,10 @@
         <div class="container">
             <p>You can use this tool to generate a DeSo wallet offline.</p>
 
-            <label for="mnemonic">Seed phrase (BIP39 mnemonic)</label>
+            <label id="mnemonic-label" for="mnemonic" class="flex">
+                <span class="flex-grow">Seed phrase (BIP39 mnemonic)</span>
+                <button type="button" id="refresh-mnemonic">Regenerate</button>
+            </label>
             <textarea id="mnemonic" rows="3"></textarea>
 
             <label for="password">Passphrase</label>
